@@ -1,0 +1,97 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+
+<!-- CSS Code -->
+<style>
+
+</style>
+
+<!-- HTML Body -->
+
+<body>
+    <header>
+        <div class="home" id="home">
+
+            <h1>My Weather App</h1>
+
+            <div class="topnav">
+                <a href="#home">Home</a>
+                <a href="#city">City</a>
+                <a href="#weather">Weather</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="city" id="city">
+
+        <h1 class="city_title">Cities to visit</h1>
+
+        <div class="box-container">
+
+            <div class="box image munich">
+                <h2>Munich</h2>
+                <p>Visit the Oktoberfest</p>
+            </div>
+
+            <div class="box image london">
+                <h2>London</h2>
+                <p>Visit the Big Ben</p>
+            </div>
+
+            <div class="box image paris">
+                <h2>Paris</h2>
+                <p>Visit the Eifel tour</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="weather" id="weather">
+        <h1>Weather Information</h1>
+
+        <div class="weather-input">
+            <h3>Enter a City Name</h3>
+            <input class="city-input" type="text" placeholder="e.g., Munich, London, Paris">
+            <button class="search-btn">Search</button>
+        </div>
+
+        <div class="weather-current">
+            <div class="weather-details">
+                <h2 id="city-name"></h2>
+                <h3 id="city-temp"></h3>
+                <h3 id="city-wind"></h3>
+                <h3 id="city-humidity"></h3>
+            </div>
+            <div class="weather-icon">
+                <img class="city-icon" src="" alt="">
+                <h3 class="city-icon-text"></h3>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="contact" id="contact">
+        <h1>Contact me</h1>
+        <form action="" method="get">
+            <label for="name">Your name:</label><br>
+            <input type="text" name="name" id="name"><br>
+            <label for="email">Your email:</label><br>
+            <input type="email" name="email" id="email"><br>
+            <input type="submit" onclick="alert('Message sent')" class="submit" value="Submit">
+        </form>
+    </section>
+
+    <script src="./weather.js"></script>
+    
+
+</body>
+
+</html>
