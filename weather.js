@@ -2,6 +2,37 @@ const cityInput = document.querySelector('.city-input')
 const GEO_API_URL = `https://geocoding-api.open-meteo.com/v1/search?count=1&language=en&format=json`;
 const FC_API_URL = `https://api.open-meteo.com/v1/forecast?current=temperature_2m,wind_speed_10m,relative_humidity_2m,weather_code`;
 
+const wmo = {
+    0: ['clear', 'clear'],
+    1: ['cloudy', 'mostly-clear'],
+    2: ['cloudy', 'partly-cloudy'],
+    3: ['cloudy', 'overcast'],
+    45: ['fog', 'fog'],
+    48: ['fog', 'rime-fog'],
+    51: ['drizzle', 'light-drizzle'],
+    53: ['drizzle', 'moderate-drizzle'],
+    55: ['drizzle', 'dense-drizzle'],
+    80: ['showers', 'light-rain'],
+    81: ['showers', 'moderate-rain'],
+    82: ['showers', 'heavy-rain'],
+    61: ['rain', 'light-rain'],
+    63: ['rain', 'moderate-rain'],
+    65: ['rain', 'heavy-rain'],
+    56: ['icy-drizzle', 'light-freezing-drizzle'],
+    57: ['icy-drizzle', 'dense-freezing-drizzle'],
+    66: ['icy-rain', 'light-freezing-rain'],
+    67: ['icy-rain', 'heavy-freezing-rain'],
+    77: ['snow-grains', 'snowflake'],
+    85: ['snow-showers', 'slight-snowfall'],
+    86: ['snow-showers', 'heavy-snowfall'],
+    71: ['snow', 'slight-snowfall'],
+    73: ['snow', 'moderate-snowfall'],
+    75: ['snow', 'heavy-snowfall'],
+    95: ['thunderstorm', 'thunderstorm'],
+    96: ['thunderstorm', 'thunderstorm-with-hail'],
+    99: ['thunderstorm', 'thunderstorm-with-hail'],
+}
+
 const getCityWeather = () => {
     const cityName = cityInput.value.trim();
     if (cityName === "") return;
@@ -24,10 +55,9 @@ const getCityWeather = () => {
                     document.querySelector('#city-temp').innerHTML = data.current.temperature_2m;
                     document.querySelector('#city-wind').innerHTML = data.current.wind_speed_10m;
                     document.querySelector('#city-humidity').innerHTML = data.current.relative_humidity_2m;
-                    console.log(data.current.temperature_2m);
-                    console.log(data.current.wind_speed_10m);
-                    console.log(data.current.relative_humidity_2m);
-                    console.log(data.current.weather_code);
+                    document.querySelector('.city-icon').src = `./icons/${wmo[data.current.weather_code][1]}@4x.png`;
+                    document.querySelector('.city-icon').alt = wmo[data.current.weather_code][1];
+                    document.querySelector('.city-icon-text').innerHTML = wmo[data.current.weather_code][0];
                 });
         });
 }
