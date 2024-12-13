@@ -1,0 +1,136 @@
+
+.image1 {
+  background-image: url(munich.jpg);
+  background-repeat: no-repeat;
+  background-size: 250px 350;
+  background-position: center;
+}
+.image2 {
+  background-image: url(london.jpg);
+  background-repeat: no-repeat;
+  background-size: 250px 350;
+  background-position: center;
+}
+
+.image3{
+  background-image: url(paris.jpg);
+  background-repeat: no-repeat;
+  background-size: 250px 350;
+  background-position: center;
+}
+.search {
+  background-color: #b4a274;
+  background-size:cover;
+  text-align: center;
+  font-size: 35px;
+}
+/* global styles */
+* {
+	margin: 0; /* no border to the viewable frame */
+  padding: 0; /* no padding to the viewable frame */
+	box-sizing: border-box;
+  /* border: 1px solid rgb(109, 7, 24); */
+}
+
+h1 {
+  font-family: "Microsoft Yahei";color:#1f2424
+}
+
+/* ################################# Navigation Bar ################################# */
+
+header {
+  background-color: rgba(213, 148, 138, 0.904);
+}
+.home {
+  display: flex; /* apply flexbox */
+  flex-direction: column; /* flexbox item in column */
+  align-items: center; /* items vertically centered */
+  justify-content: space-between; /* left space between containers */
+}
+.topnav {
+  margin: 15px;
+}
+/* Style the links inside the topnav */
+.topnav a {
+  color: #cbc1ab; /* text color white */
+  padding: 14px 16px;
+  text-decoration: none; /* no underline of links */
+  font-size: 26px;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #b4a274;
+  color: black; /* text color white */
+  border-radius: 15px;
+}
+/* ################################# SECTION Profile ################################# */
+.profile {
+  background-color: rgb(195, 193, 180);
+  padding: 10px;
+  background-image: url("./images/pexels-bg.jpg"); /* get background image */
+  background-repeat: no-repeat; /* only once */
+  background-size: cover; /* cover the container */
+  background-position: center; /* position bg in center of picture*/
+  
+  /* acivate line blow to see effect */
+  /* min-height: 600px; */
+}
+.profile_title {
+  text-align: center;
+}
+.box-container {
+  display: flex;
+  flex-direction: column; /* flexbox item in column */
+  align-items: center;
+  justify-content: space-around;
+}
+.box {
+  background-color: rgb(204, 196, 162);
+  height: 350px;
+  width: 350px;
+  text-align: center;
+  margin: 20px;
+  font-size: larger;
+
+  /* acivate line blow to see effect */
+  /* width: 70%; */
+}
+
+
+
+/* ################################# SECTION Contact ################################# */
+.contact {
+  background-color: rgb(164, 185, 170);
+  height: 400px;
+  padding: 10px;
+}
+
+label {
+  font-size: 24px;
+}
+input {
+  font-size: 12px;
+  padding: 5px;
+  margin: 10px;
+  background-color: lightgray;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+input [type="submit"] {
+  font-size: 15px;
+  padding: 5px;
+}
+
+/* media query to change layout when screen is wider than 880px */
+@media (min-width: 880px) {
+  .profile_title {
+    text-align: left;
+  }
+  .home {
+    flex-direction: row;
+    /* overflow: hidden; */
+  }
+  .box-container {
+    flex-direction: row;
+  }
+}
