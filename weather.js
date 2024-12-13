@@ -2,6 +2,8 @@ const cityInput = document.querySelector('.city-input')
 const GEO_API_URL = `https://geocoding-api.open-meteo.com/v1/search?count=1&language=en&format=json`;
 const FC_API_URL = `https://api.open-meteo.com/v1/forecast?current=temperature_2m,wind_speed_10m,relative_humidity_2m,weather_code`;
 
+// wmo_code: ['weather group', 'weather detailed type']
+// https://open-meteo.com/en/docs
 const wmo = {
     0: ['clear', 'clear'],
     1: ['cloudy', 'mostly-clear'],
@@ -52,9 +54,9 @@ const getCityWeather = () => {
                 .then((response) => response.json())
                 .then(data => {
                     document.querySelector('#city-name').innerHTML = cityName;
-                    document.querySelector('#city-temp').innerHTML = data.current.temperature_2m;
-                    document.querySelector('#city-wind').innerHTML = data.current.wind_speed_10m;
-                    document.querySelector('#city-humidity').innerHTML = data.current.relative_humidity_2m;
+                    document.querySelector('#city-temp').innerHTML = `Temperature: ${data.current.temperature_2m} °C`;
+                    document.querySelector('#city-wind').innerHTML = `Wind: ${data.current.wind_speed_10m} Km/h`;
+                    document.querySelector('#city-humidity').innerHTML = `Humidity: ${data.current.relative_humidity_2m} %`;
                     document.querySelector('.city-icon').src = `./icons/${wmo[data.current.weather_code][1]}@4x.png`;
                     document.querySelector('.city-icon').alt = wmo[data.current.weather_code][1];
                     document.querySelector('.city-icon-text').innerHTML = wmo[data.current.weather_code][0];
